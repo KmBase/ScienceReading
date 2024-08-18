@@ -1,0 +1,5 @@
+import sys, os
+os.chdir(os.path.dirname(__file__))
+sys.path.append(os.path.abspath('app'))
+import entry
+entry.main()

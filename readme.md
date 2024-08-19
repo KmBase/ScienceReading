@@ -37,14 +37,31 @@ Portable安装包[SciReadingDownloader.zip](https://raw.githubusercontent.com/Km
 
 # 使用
 
+## 启动界面
+
+![](https://raw.githubusercontent.com/KmBase/ScienceReading/master/docs/launch.png)
+
 ## 搜索
 
 搜索框输入关键词，点击搜索按钮或回车。
 
+![](https://raw.githubusercontent.com/KmBase/ScienceReading/master/docs/example01.png)
+
+![](https://raw.githubusercontent.com/KmBase/ScienceReading/master/docs/example02.png)
+
 ## 下载
 
 双击下载，已限制下载次数，请勿频繁下载。
+![](https://raw.githubusercontent.com/KmBase/ScienceReading/master/docs/example03.png)
+
 
 ## 取消
 
 右键双击取消搜索或下载。
+![](https://raw.githubusercontent.com/KmBase/ScienceReading/master/docs/example04.png)
+
+
+## 取消
+
+左键双击打开下载目录。
+![](https://raw.githubusercontent.com/KmBase/ScienceReading/master/docs/example04.png)

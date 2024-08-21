@@ -136,26 +136,6 @@ class PerfectBuild:
             iss.write(iss_script)
         return iss_work
 
-    def create_portable(self):
-        file_list = glob.glob(
-            f"{self.build_dir}/{AppConfig.system}-{AppConfig.arch}/{self.dist}/**",
-            recursive=True,
-        )
-        file_list.sort()
-        portable_file = (
-            self.release_dir
-            / f"{AppConfig.app_exec}-{AppConfig.app_ver}{self.mode}-Portable-{AppConfig.system}-{AppConfig.arch}.zip"
-        )
-        print("Creating portable package...")
-        with ZipFile(portable_file, "w", compression=ZIP_DEFLATED) as zf:
-            for file in file_list:
-                file = Path(file)
-                name_in_zip = f'{AppConfig.app_exec}/{"/".join(file.parts[6:])}'
-                print(name_in_zip)
-                if file.is_file():
-                    zf.write(file, name_in_zip)
-        print("Creating portable package done.")
-
     def create_setup(self):
         iss_work = self.update_iss()
         if Path(iss_compiler).exists:
@@ -187,7 +167,7 @@ def main(args):
     app_id = generate_new_id(False)
     pb = PerfectBuild(app_id, mode)
     pb.ebuild(password)
-    pb.create_portable()
+    pb.dist = "embedded"
     if AppConfig.system == "Windows":
         pb.create_setup()
 

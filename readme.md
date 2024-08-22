@@ -1,7 +1,7 @@
 
 # 开发
 
-**注意**：核心代码已加密，暂不提供
+**注意**：核心代码未开源
 
 ## 创建并激活venv
 
@@ -31,9 +31,7 @@ python build.py
 
 # 下载
 
-Setup安装包[SciReadingDownloader.exe](https://raw.githubusercontent.com/KmBase/ScienceReading/master/release/1.0.0e/ScienceReading-1.0.0e-Setup-Windows-64.exe)
-
-Portable安装包[SciReadingDownloader.zip](https://raw.githubusercontent.com/KmBase/ScienceReading/master/release/1.0.0e/ScienceReading-1.0.0e-Portable-Windows-64.zip)
+Setup安装包[SciReadingDownloader.exe](https://github.com/KmBase/ScienceReading/releases/download/release/ScienceReading-1.0.0e-Setup-Windows-64.exe)
 
 # 使用
 

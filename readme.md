@@ -1,4 +1,4 @@
-# 下载
+# 安装
 
 Setup安装包[ScienceReading.exe](https://github.com/KmBase/ScienceReading/releases/download/release/ScienceReading-1.0.0e-Setup-Windows-64.exe)
 

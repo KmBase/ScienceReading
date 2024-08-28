@@ -65,3 +65,6 @@ python main.py
 ```bash
 python build.py
 ```
+# 其他
+
+遇到一个玄学问题，单独的pyd不能够正常运行，单独的egg压缩文件不能够正常运行，两个都加上竟然能够跑起来~

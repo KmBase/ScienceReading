@@ -1,13 +1,9 @@
-
 if __name__ == '__main__':
-    import sys, os, site
+    import sys, os
     cwd = os.path.dirname(__file__)
+    print(cwd)
     os.chdir(cwd)
-    sys.path.append(os.path.abspath('app'))
-    libs = cwd+"\embedded\site-packages"
-    sys.path.append(os.path.abspath(libs))
-    if os.path.exists(libs):
-        site.addsitedir(libs)
-    import app
-    main_path = os.path.join(cwd,'embedded\\.main')
-    app.run(main_path)
+    sys.path.append(os.path.abspath('src'))
+    import entry
+    main_path = os.path.join(cwd,'embedded',".main")
+    entry.main(main_path)

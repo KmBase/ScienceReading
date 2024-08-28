@@ -8,14 +8,12 @@
 @License :   (C)Copyright 2022, KmBase
 @Desc    :   使用前需要先安装InnoSetup,应用更新时请不要修改app_id,password自行修改
 """
-import glob
 import shutil
 import subprocess
 import os, sys
 from pathlib import Path
-from zipfile import ZIP_DEFLATED, ZipFile
 import uuid
-from app.app import AppConfig
+from src.app import AppConfig
 
 
 def generate_new_id(mode):
@@ -57,13 +55,13 @@ class PerfectBuild:
             Path(AppConfig.app_home), "build", f"{AppConfig.system}-{AppConfig.arch}"
         )
         embedded_dir = Path.joinpath(Path(AppConfig.app_home), "embedded")
-        ## 7zip部分
+        # ## 7zip部分
         import py7zr
 
         # 要压缩的文件或文件夹路径
-        source_path = f"{AppConfig.app_home}\\app\\app.py"
+        source_path = f"{AppConfig.app_home}\\src\\app.py"
         # 压缩后的7z文件名
-        archive_name = f"{AppConfig.app_home}\\embedded\\app\\.app.egg"
+        archive_name = f"{AppConfig.app_home}\\embedded\\src\\.app.egg"
         # 设置密码
         # 创建压缩文件并设置密码
         with py7zr.SevenZipFile(archive_name, "w", password=password) as archive:
@@ -76,8 +74,9 @@ class PerfectBuild:
             "--module",
             "--remove-output",
             "--no-pyi-file",
-            f"{AppConfig.app_home.__str__()}\\app\\entry.py",
-            f"--output-dir={embedded_dir.__str__()}\\app",
+            f"{AppConfig.app_home.__str__()}\\src\\entry.py",
+            f"{AppConfig.app_home.__str__()}\\src\\app.py",
+            f"--output-dir={embedded_dir.__str__()}\\src",
         ]
         process = subprocess.run(cmd_args, shell=True)
         if process.returncode != 0:
@@ -168,8 +167,8 @@ def main(args):
     pb = PerfectBuild(app_id, mode)
     pb.ebuild(password)
     pb.dist = "embedded"
-    if AppConfig.system == "Windows":
-        pb.create_setup()
+    # if AppConfig.system == "Windows":
+    #     pb.create_setup()
 
 
 if __name__ == "__main__":

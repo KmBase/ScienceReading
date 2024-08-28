@@ -1,5 +1,11 @@
-import sys, os
-os.chdir(os.path.dirname(__file__))
-sys.path.append(os.path.abspath('app'))
-import entry
-entry.main()
+if __name__ == '__main__':
+    import sys, os
+    cwd = os.path.dirname(__file__)
+    print(cwd)
+    os.chdir(cwd)
+    sys.path.append(os.path.abspath('src'))
+    import multiprocessing
+    multiprocessing.freeze_support()
+    multiprocessing.set_executable(os.path.join(sys.exec_prefix, 'pythonw.exe'))
+    import entry
+    entry.main()

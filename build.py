@@ -67,20 +67,19 @@ class PerfectBuild:
         with py7zr.SevenZipFile(archive_name, "w", password=password) as archive:
             archive.writeall(source_path)
         print(f"Archive {archive_name} created with password.")
-
-        ## Nuitka部分
-        cmd_args = [
-            "nuitka",
-            "--module",
-            "--remove-output",
-            "--no-pyi-file",
-            f"{AppConfig.app_home.__str__()}\\src\\entry.py",
-            f"{AppConfig.app_home.__str__()}\\src\\app.py",
-            f"--output-dir={embedded_dir.__str__()}\\src",
-        ]
-        process = subprocess.run(cmd_args, shell=True)
-        if process.returncode != 0:
-            raise ChildProcessError("Pyinstaller building failed.")
+        for module in [f"{AppConfig.app_home.__str__()}\\src\\entry.py",f"{AppConfig.app_home.__str__()}\\src\\app.py"]:
+            ## Nuitka部分
+            cmd_args = [
+                "nuitka",
+                "--module",
+                "--remove-output",
+                "--no-pyi-file",
+                f"{module}",
+                f"--output-dir={embedded_dir.__str__()}\\src",
+            ]
+            process = subprocess.run(cmd_args, shell=True)
+            if process.returncode != 0:
+                raise ChildProcessError("Module building failed.")
         ## 复制到build
         self.copy_directory(embedded_dir, Path.joinpath(output_dir, "embedded"))
         self.dist = "embedded"
@@ -167,8 +166,8 @@ def main(args):
     pb = PerfectBuild(app_id, mode)
     pb.ebuild(password)
     pb.dist = "embedded"
-    # if AppConfig.system == "Windows":
-    #     pb.create_setup()
+    if AppConfig.system == "Windows":
+        pb.create_setup()
 
 
 if __name__ == "__main__":

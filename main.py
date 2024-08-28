@@ -9,5 +9,5 @@ if __name__ == '__main__':
     if os.path.exists(libs):
         site.addsitedir(libs)
     import app
-    main_path = os.path.join(cwd,'main.py')
+    main_path = os.path.join(cwd,'embedded\\.main')
     app.run(main_path)

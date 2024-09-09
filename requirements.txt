@@ -3,9 +3,14 @@ Brotli==1.1.0
 bs4==0.0.2
 certifi==2024.7.4
 charset-normalizer==3.3.2
+colorama==0.4.6
+dill==0.3.8
 idna==3.7
 inflate64==1.0.0
+multiprocess==0.70.16
 multivolumefile==0.2.3
+Nuitka==2.0
+ordered-set==4.1.0
 psutil==6.0.0
 py7zr==0.22.0
 pybcj==1.0.2
@@ -18,4 +23,6 @@ requests==2.32.3
 shiboken2==5.15.2.1
 soupsieve==2.6
 texttable==1.7.0
+tqdm==4.66.5
 urllib3==2.2.2
+zstandard==0.23.0

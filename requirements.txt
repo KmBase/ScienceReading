@@ -24,5 +24,5 @@ shiboken2==5.15.2.1
 soupsieve==2.6
 texttable==1.7.0
 tqdm==4.66.5
-urllib3==2.2.2
+urllib3==1.25.11
 zstandard==0.23.0

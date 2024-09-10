@@ -1,5 +1,6 @@
 if __name__ == '__main__':
-    import sys, os
+    import sys
+    import os
     cwd = os.path.dirname(__file__)
     print(cwd)
     os.chdir(cwd)

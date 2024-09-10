@@ -166,8 +166,8 @@ def main(args):
     pb = PerfectBuild(app_id, mode)
     pb.ebuild(password)
     pb.dist = "embedded"
-    if AppConfig.system == "Windows":
-        pb.create_setup()
+    # if AppConfig.system == "Windows":
+    #     pb.create_setup()
 
 
 if __name__ == "__main__":
